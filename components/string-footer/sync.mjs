@@ -44,7 +44,7 @@ const publicDir = config.publicDir ?? 'public';
 const files = new Map([
   [`${publicDir}/string-footer/string-logo.svg`,logo],
   [`${publicDir}/string-footer/bootstrap-icons-LICENSE.txt`,licence],
-  ['string-footer.json',JSON.stringify({version:'1.0.0',source:'https://github.com/String-sg/string-footer',sha256:hash,product,variant:config.variant ?? 'full',credits:config.credits ?? []},null,2)+'\n'],
+  ['string-footer.json',JSON.stringify({version:'1.0.1',source:'https://github.com/String-sg/string-footer',sha256:hash,product,variant:config.variant ?? 'full',credits:config.credits ?? []},null,2)+'\n'],
 ]);
 if (config.framework === 'html') {
   const stylePath = config.stylePath ?? 'styles/string-footer.css';

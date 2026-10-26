@@ -12,7 +12,7 @@ The compact variant follows String's Code of Conduct: name the people behind pro
 Requires Node 20+. Clone this repository at a reviewed tag/commit, or install directly from GitHub:
 
 ```sh
-npm install github:String-sg/string-footer#v1.0.0
+npm install github:String-sg/string-footer#v1.0.1
 ```
 
 Use a project-owned `footer.config.json`:

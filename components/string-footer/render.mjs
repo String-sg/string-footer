@@ -32,5 +32,6 @@ export function renderFooter({ variant = 'full', credits = [], product, support 
     .replace('{{attribution}}', attribution)
     .replace('{{credits}}', authors ? `<div class="str-footer__credit-extra"><p class="str-footer__credits">${authors}</p></div>` : '')
     .replace('{{github}}', github)
-    .replace('{{conduct}}', conduct);
+    .replace('{{conduct}}', conduct)
+    .replace(/[ \t]+$/gm, '');
 }
