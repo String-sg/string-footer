@@ -20,7 +20,7 @@ This vendors framework-native markup, shared CSS, the approved SVG and a version
 
 Change shared markup and styles in the branding source, regenerate affected consumers, and review each diff. Avoid patching generated copies independently. When adding a new product, extend the explicit product map and preserve the shared String organisation link. Keep assets local; do not load a footer script from GitHub or add a publishing dependency solely for this component.
 
-Keep game controls, authentication, attributions and product-specific integration links outside the shared footer. In Bingo, `.footer` is the game controls area used by authentication code; do not reuse it for the String footer. In String ID, preserve the conduct-signing gate and public conduct route.
+Keep game controls, authentication and product-specific integration links outside the shared footer. In the compact variant, render the existing contributor credits in the footer itself and remove only their duplicated display copy; preserve their exact roles, wording and links. In Bingo, `.footer` is the game controls area used by authentication code; do not reuse it for the String footer. In String ID, preserve the conduct-signing gate and public conduct route.
 
 Check mobile and desktop rendering, logo loading, one footer per page, no horizontal overflow, keyboard focus and link destinations. Exercise relevant routes and Bingo's creation page as well as home pages. Run the target repository's required checks. Open PRs when requested; adoption does not authorize merging or deployment.
 
