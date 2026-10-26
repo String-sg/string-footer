@@ -1,0 +1,8 @@
+{
+  "repository": "String-sg/string-brand-guide",
+  "ref": "d6b12bfe8f972f9b34e505adf270bfda15d932f6",
+  "path": "4. Svg Separate Files/primary_green.svg",
+  "sha256": "5171877c5792dcc24c057e8af386c7e27318b09446d5cea545a0fc723f939251",
+  "outputSha256": "1765650e9b81be6f42e248bfb028774c21a44c5b9cef4ec2f210c4ef269e7395",
+  "transform": "Crop viewBox whitespace to 25 12 322 111; paths and colours unchanged"
+}

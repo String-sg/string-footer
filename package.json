@@ -1,0 +1,13 @@
+{
+  "name": "@string-sg/footer",
+  "version": "1.0.0",
+  "description": "Shared String footers with visible original contributor attribution",
+  "type": "module",
+  "license": "MIT",
+  "repository": {"type":"git","url":"https://github.com/String-sg/string-footer.git"},
+  "engines": {"node":">=20"},
+  "bin": {"string-footer":"components/string-footer/sync.mjs"},
+  "exports": {"./render":"./components/string-footer/render.mjs","./styles.css":"./components/string-footer/footer.css"},
+  "files": ["components/string-footer","scripts","examples","README.md","LICENSE"],
+  "scripts": {"test":"node --test tests/*.test.mjs","build":"node scripts/build.mjs","prepack":"npm test && npm run build"}
+}
