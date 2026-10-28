@@ -6,7 +6,7 @@ import { createHash } from 'node:crypto';
 import { renderFooter } from './render.mjs';
 export const products = {
   landing: { name:'string-site', framework:'astro', variant:'full' },
-  id: { name:'string-id', framework:'react', variant:'full' },
+  id: { name:'string-id', framework:'react', variant:'compact', credits:[{label:'Built by',name:'String Team'}] },
   skills: { name:'string-skills', framework:'react', variant:'full' },
   bingo: { name:'string-bingo', framework:'html', variant:'compact', pages:['index.html','new.html'], credits:[{label:'Made with ❤️ by',name:'String Team',url:'https://for.edu.sg/str-bingo-tree'},{label:'Inspired by',name:'Seng Kwang (Physics educator @ TJC)'}] },
   reports: { name:'my-project', framework:'react', variant:'full', componentDir:'components/string-footer' },
@@ -44,7 +44,7 @@ const publicDir = config.publicDir ?? 'public';
 const files = new Map([
   [`${publicDir}/string-footer/string-logo.svg`,logo],
   [`${publicDir}/string-footer/bootstrap-icons-LICENSE.txt`,licence],
-  ['string-footer.json',JSON.stringify({version:'1.0.1',source:'https://github.com/String-sg/string-footer',sha256:hash,product,variant:config.variant ?? 'full',credits:config.credits ?? []},null,2)+'\n'],
+  ['string-footer.json',JSON.stringify({version:'1.0.2',source:'https://github.com/String-sg/string-footer',sha256:hash,product,variant:config.variant ?? 'full',credits:config.credits ?? []},null,2)+'\n'],
 ]);
 if (config.framework === 'html') {
   const stylePath = config.stylePath ?? 'styles/string-footer.css';

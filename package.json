@@ -1,6 +1,6 @@
 {
   "name": "@string-sg/footer",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Shared String footers with visible original contributor attribution",
   "type": "module",
   "license": "MIT",

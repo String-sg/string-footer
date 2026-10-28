@@ -2,7 +2,7 @@
 
 Reusable footers for String products and community-built tools. One source, two variants, no runtime downloads or framework dependency.
 
-- **Full:** the ecosystem footer for landing pages, identity, skills and reports. Products → Metrics → Skills; icon socials; Sign up under Get involved; Privacy and Terms. Code of Conduct appears only on String ID.
+- **Full:** the ecosystem footer for landing pages, skills and reports. Products → Metrics → Skills; icon socials; Sign up under Get involved; Privacy and Terms. Code of Conduct appears only on String ID.
 - **Compact:** visible contributor credits first, then a String backlink, Join String, GitHub and policies. For focused tools and adaptations. Original authors, inspiration and later adapters have separate labels; do not silently replace one with another.
 
 The compact variant follows String's Code of Conduct: name the people behind problem statements, code, writing and other knowledge artefacts in a place people can see. It requires at least one named credit. Preserve their existing credit language and source links. Calling something “inspired by” is different from claiming that person authored this implementation.
@@ -12,7 +12,7 @@ The compact variant follows String's Code of Conduct: name the people behind pro
 Requires Node 20+. Clone this repository at a reviewed tag/commit, or install directly from GitHub:
 
 ```sh
-npm install github:String-sg/string-footer#v1.0.1
+npm install github:String-sg/string-footer#v1.0.2
 ```
 
 Use a project-owned `footer.config.json`:
@@ -52,7 +52,7 @@ node components/string-footer/sync.mjs reports /path/to/reports
 node components/string-footer/sync.mjs diagrams /path/to/diagrams
 ```
 
-Bingo's compact variant preserves “Made with ❤️ by String Team” and “Inspired by Seng Kwang (Physics educator @ TJC)”. Diagrams preserves “Created by Julienne, supported by string.sg”. Game controls, auth, integration links and tool-specific credits remain app-owned. No location label is added.
+Bingo's compact variant preserves “Made with ❤️ by String Team” and “Inspired by Seng Kwang (Physics educator @ TJC)”. Diagrams preserves “Created by Julienne, supported by string.sg”. String ID also uses compact, credits String Team, and retains its local Code of Conduct link. Game controls, auth, integration links and tool-specific credits remain app-owned. No location label is added.
 
 ## Shared assets and updates
 

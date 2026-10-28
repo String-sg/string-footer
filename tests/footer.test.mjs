@@ -56,3 +56,16 @@ test('static adopters update only marked footer blocks and preserve app controls
     assert.notEqual(spawnSync(process.execPath,[cli,'--config',config,root]).status,0);
   } finally {rmSync(root,{recursive:true,force:true});}
 });
+test('String ID preset stays compact and retains its local conduct link',()=>{
+  const root=mkdtempSync(join(tmpdir(),'string-footer-id-'));
+  try {
+    writeFileSync(join(root,'package.json'),JSON.stringify({name:'string-id'}));
+    execFileSync(process.execPath,[cli,'id',root]);
+    const manifest=JSON.parse(readFileSync(join(root,'string-footer.json'),'utf8'));
+    assert.equal(manifest.variant,'compact');
+    const component=readFileSync(join(root,'src/components/string-footer/StringFooter.tsx'),'utf8');
+    assert.match(component,/Built by <strong>String Team<\/strong>/);
+    assert.match(component,/href="\/conduct">Code of Conduct/);
+    assert.doesNotMatch(component,/Explore String|Get involved|Seng Kwang|Julienne/);
+  } finally {rmSync(root,{recursive:true,force:true});}
+});
