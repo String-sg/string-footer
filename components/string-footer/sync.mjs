@@ -10,7 +10,7 @@ export const products = {
   skills: { name:'string-skills', framework:'react', variant:'full' },
   bingo: { name:'string-bingo', framework:'html', variant:'compact', pages:['index.html','new.html'], credits:[{label:'Created by',name:'Seng Kwang',creation:'bingo',url:'https://id.string.sg/u/sengkwang'}] },
   reports: { name:'my-project', framework:'react', variant:'full', componentDir:'components/string-footer' },
-  diagrams: { name:'diagrams', framework:'react', variant:'compact', componentDir:'components/string-footer', support:'supported by', supportNewTab:true, credits:[{label:'Created by',name:'Julienne',creation:'diagrams'}] },
+  diagrams: { name:'diagrams', framework:'react', variant:'compact', componentDir:'components/string-footer', support:'supported by', supportNewTab:true, credits:[{label:'Created by',name:'Julienne',creation:'diagrams',url:'https://id.string.sg/u/jtan'}] },
 };
 const { version } = JSON.parse(await readFile(new URL('../../package.json', import.meta.url), 'utf8'));
 const args = process.argv.slice(2);

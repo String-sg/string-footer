@@ -52,7 +52,7 @@ node components/string-footer/sync.mjs reports /path/to/reports
 node components/string-footer/sync.mjs diagrams /path/to/diagrams
 ```
 
-Bingo's compact variant preserves “Made with ❤️ by String Team” and “Inspired by Seng Kwang (Physics educator @ TJC)”. Diagrams preserves “Created by Julienne, supported by string.sg”. String ID also uses compact, credits String Team, and retains its local Code of Conduct link. Game controls, auth, integration links and tool-specific credits remain app-owned. No location label is added.
+Bingo credits its confirmed creator Seng Kwang, linked to his String ID profile. Diagrams preserves “Created by Julienne, supported by string.sg”. String ID also uses compact, credits String Team, and retains its local Code of Conduct link. Game controls, auth, integration links and tool-specific credits remain app-owned. No location label is added.
 
 ## Shared assets and updates
 
@@ -76,7 +76,7 @@ Full ecosystem footer:
 
 ![Full footer](components/string-footer/previews/desktop.png)
 
-Compact Bingo attribution (its inspiration credit is preserved):
+Compact Bingo attribution:
 
 ![Compact footer](components/string-footer/previews/compact-desktop.png)
 
@@ -125,4 +125,4 @@ Compact credits use “Created by …, supported by string.sg”. The owner conf
 
 A credit may include `creation: "bingo"` (or `"diagrams"`). The generator bundles a local, optional enhancement that requests public attribution from `https://id.string.sg/api/creation?slug=…`, without cookies or caching. The response links to the creator's public String ID profile and includes a school only when its existing `showSchool` checkbox and public profile permit it. Never place a school directly in static credit text. If the API is unavailable, the approved original credit remains and no school is shown. This is a public profile display preference, not school-affiliation verification.
 
-The reviewed mapping lives in String ID's `src/lib/creations.ts`; the same mapping populates Profile → My creations and public profile pages. Handles must be confirmed before assigning them. Bingo links to the confirmed Seng Kwang profile. Julienne’s credit remains unlinked until her profile is confirmed. The module bundles locally; it never fetches executable code from GitHub. Sites with a Content Security Policy must allow `https://id.string.sg` in `connect-src`. This enhancement requires the String ID API change to deploy first; products work with their fallback credits beforehand.
+The reviewed mapping lives in String ID's `src/lib/creations.ts`; the same mapping populates Profile → My creations and public profile pages. Handles must be confirmed before assigning them. Bingo links to the confirmed Seng Kwang profile. Diagrams links to Julienne’s confirmed `jtan` profile. The module bundles locally; it never fetches executable code from GitHub. Sites with a Content Security Policy must allow `https://id.string.sg` in `connect-src`. This enhancement requires the String ID API change to deploy first; products work with their fallback credits beforehand.
