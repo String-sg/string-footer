@@ -12,6 +12,7 @@ export const products = {
   reports: { name:'my-project', framework:'react', variant:'full', componentDir:'components/string-footer' },
   diagrams: { name:'diagrams', framework:'react', variant:'compact', componentDir:'components/string-footer', support:'supported by', supportNewTab:true, credits:[{label:'Created by',name:'Julienne'}] },
 };
+const { version } = JSON.parse(await readFile(new URL('../../package.json', import.meta.url), 'utf8'));
 const args = process.argv.slice(2);
 let config, target, product;
 if (args[0] === '--config') {
@@ -44,7 +45,7 @@ const publicDir = config.publicDir ?? 'public';
 const files = new Map([
   [`${publicDir}/string-footer/string-logo.svg`,logo],
   [`${publicDir}/string-footer/bootstrap-icons-LICENSE.txt`,licence],
-  ['string-footer.json',JSON.stringify({version:'1.0.2',source:'https://github.com/String-sg/string-footer',sha256:hash,product,variant:config.variant ?? 'full',credits:config.credits ?? []},null,2)+'\n'],
+  ['string-footer.json',JSON.stringify({version,source:'https://github.com/String-sg/string-footer',sha256:hash,product,variant:config.variant ?? 'full',credits:config.credits ?? []},null,2)+'\n'],
 ]);
 if (config.framework === 'html') {
   const stylePath = config.stylePath ?? 'styles/string-footer.css';
