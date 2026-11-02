@@ -83,3 +83,38 @@ Compact Bingo attribution (its inspiration credit is preserved):
 Diagrams on mobile (its exact Julienne credit is preserved):
 
 ![Diagrams credits](components/string-footer/previews/diagrams-compact.png)
+
+## Publishing and updating the adoption skill
+
+Edit `.claude/skills/string-footer/` here only. The brand guide links here; the registry and local installs are distribution copies. The skill and footer share the package version. Publication adds a deterministic `release.json` containing the exact source commit and compatible footer version.
+
+### One-time setup
+
+At [String Skills account settings](https://skills.string.sg/account), use the `string` publisher handle to mint a dedicated key with only the `publish` scope. Add it as the repository Actions secret `STRING_SKILLS_PUBLISH_KEY`. This key is handle-scoped by the registry; it is not restricted to this one skill. Do not commit or paste it into issue/PR text.
+
+```sh
+gh secret set STRING_SKILLS_PUBLISH_KEY --repo String-sg/string-footer
+```
+
+The command prompts for the key without placing it in shell history. Repository maintainers should restrict tag creation and review publishing-workflow changes because tagged releases can use this secret.
+
+### Release
+
+1. Update the skill/component in one PR, bump `package.json` (the generator reads its manifest version from there) when creating a new release, and run `npm test` plus the existing build/asset checks.
+2. Merge the reviewed PR, then tag that commit `v<package.json version>` and push the tag. `Publish footer skill` validates the release, publishes `string/string-footer`, and verifies every manifest digest and downloaded file. A green workflow means the registry bytes match the tag.
+3. If publication fails, fix the cause and rerun using the workflow's **Run workflow** action with the same tag. An identical existing version is verified without rewriting it. Different content, extra files, yanked versions and registry failures fail the run; never move an existing tag or overwrite an immutable version. Publish a new version for changes.
+
+For the initial registry publication, merge this change and create `v1.0.3` at the merged commit after configuring the secret. If the secret is added after the tag, run the workflow manually with `v1.0.3`.
+
+Local dry run / read-only verification (the commit must be the release tag's full SHA):
+
+```sh
+RELEASE_COMMIT=$(git rev-parse HEAD) node scripts/publish-skill.mjs --dry-run
+RELEASE_COMMIT=$(git rev-parse HEAD) node scripts/publish-skill.mjs --verify-only
+```
+
+### Update installations and products explicitly
+
+Installed skills are snapshots, not live subscriptions. For a local Codex or Claude installation, obtain the desired tagged repository, replace the installed `string-footer` skill folder from that tag, and compare its files with that tag before using it. Keep local custom guidance outside the generated folder. Registry downloads also include `release.json`, which identifies the compatible footer checkout. The registry's existing one-way GitHub mirror handles its public distribution; do not edit the mirror.
+
+Product footers update separately through reviewed PRs: regenerate with the chosen release and run `sync.mjs <product> <checkout> --check`. This detects local drift relative to that release, not whether a newer release exists. A footer release does not deploy changes to consumer sites.

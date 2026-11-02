@@ -1,0 +1,50 @@
+name: Publish footer skill
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Existing release tag to publish or verify again
+        required: true
+        type: string
+permissions:
+  contents: read
+concurrency:
+  group: publish-footer-skill
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      # Load publishing code from the reviewed default branch. Read skill data from the release tag.
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          path: publisher
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.tag || github.ref_name }}
+          path: release
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Validate release
+        working-directory: release
+        env:
+          RELEASE_TAG: ${{ inputs.tag || github.ref_name }}
+        run: |
+          test "${RELEASE_TAG}" = "v$(node -p 'require("./package.json").version')"
+          git show-ref --verify "refs/tags/${RELEASE_TAG}"
+          npm test
+          node scripts/sync-brand-assets.mjs --check
+          npm run build
+      - name: Publish and verify immutable skill
+        working-directory: release
+        env:
+          STRING_SKILLS_PUBLISH_KEY: ${{ secrets.STRING_SKILLS_PUBLISH_KEY }}
+          RELEASE_TAG: ${{ inputs.tag || github.ref_name }}
+        run: |
+          export RELEASE_COMMIT="$(git rev-parse HEAD)"
+          cp ../publisher/scripts/publish-skill.mjs scripts/publish-skill.mjs
+          node scripts/publish-skill.mjs

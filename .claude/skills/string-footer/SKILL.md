@@ -5,11 +5,11 @@ description: Adopt or update the shared String product footer across String webs
 
 # String footer
 
-The source of truth is [String-sg/string-footer](https://github.com/String-sg/string-footer). Read its README and inspect the target repository's instructions before editing.
+The source of truth is [String-sg/string-footer](https://github.com/String-sg/string-footer). Use the exact footer release recorded in the packaged `release.json` (or package.json when working in the source checkout), rather than mutable main. Read its README and inspect the target repository's instructions before editing.
 
 The component uses String's mint logo, charcoal background, Montserrat body and Space Grotesk labels. Explore String contains Products (`https://string.sg/products/`), Metrics (`https://reports.string.sg/`), then Skills with the explanation “for AI, e.g. Claude, Codex” (`https://skills.string.sg/`). Keep Bingo out of this navigation. Place a Sign up link to `https://id.string.sg/` below the links in Get involved. Do not show a location label; String is expanding across Asia. Social links use compact SVG icons with accessible names and visible keyboard focus. Keep community, privacy and terms links consistent. Social destinations are Medium (`https://medium.com/string`), LinkedIn (`https://www.linkedin.com/company/77759625/`), Instagram (`https://www.instagram.com/stringedu/`), TikTok (`https://www.tiktok.com/@string.sg`) and GitHub (`https://github.com/String-sg/`). GitHub is a social icon linking to the String organisation, not a separate per-product source link. Only String ID shows Code of Conduct, using the local `/conduct` route. Do not add that policy link to the other products. Signing and access controls remain owned by String ID.
 
-For the supported String products, run the reviewed branding checkout's script:
+For the supported String products, run the reviewed footer release checkout's script:
 
 ```sh
 node components/string-footer/sync.mjs <landing|id|skills|bingo|reports|diagrams> /path/to/product
@@ -18,7 +18,7 @@ node components/string-footer/sync.mjs <landing|id|skills|bingo|reports|diagrams
 
 This vendors framework-native markup, shared CSS, the approved SVG and a version/digest manifest. It does not wire up a new React or Astro layout. Import `src/components/string-footer/StringFooter` once in the outer layout, after the main content. The landing site's existing `Footer.astro` delegates to the generated component. Static HTML pages use marked regions managed by the script.
 
-Change shared markup and styles in the branding source, regenerate affected consumers, and review each diff. Avoid patching generated copies independently. When adding a new product, extend the explicit product map and preserve the shared String organisation link. Keep assets local; do not load a footer script from GitHub or add a publishing dependency solely for this component.
+Change shared markup and styles in the footer source, regenerate affected consumers, and review each diff. Avoid patching generated copies independently. When adding a new product, extend the explicit product map and preserve the shared String organisation link. Keep assets local; do not load a footer script from GitHub or add a publishing dependency solely for this component.
 
 Keep game controls, authentication and product-specific integration links outside the shared footer. In the compact variant, render the existing contributor credits in the footer itself and remove only their duplicated display copy; preserve their exact roles, wording and links. In Bingo, `.footer` is the game controls area used by authentication code; do not reuse it for the String footer. In String ID, preserve the conduct-signing gate and public conduct route.
 
