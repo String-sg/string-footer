@@ -118,3 +118,11 @@ RELEASE_COMMIT=$(git rev-parse HEAD) node scripts/publish-skill.mjs --verify-onl
 Installed skills are snapshots, not live subscriptions. For a local Codex or Claude installation, obtain the desired tagged repository, replace the installed `string-footer` skill folder from that tag, and compare its files with that tag before using it. Keep local custom guidance outside the generated folder. Registry downloads also include `release.json`, which identifies the compatible footer checkout. The registry's existing one-way GitHub mirror handles its public distribution; do not edit the mirror.
 
 Product footers update separately through reviewed PRs: regenerate with the chosen release and run `sync.mjs <product> <checkout> --check`. This detects local drift relative to that release, not whether a newer release exists. A footer release does not deploy changes to consumer sites.
+
+## Creator profiles and school visibility
+
+Compact credits use “Created by …, supported by string.sg”. Bingo's separate Seng Kwang inspiration credit remains separate from authorship. Its old heart wording and static school reference are removed.
+
+A credit may include `creation: "bingo"` (or `"diagrams"`). The generator bundles a local, optional enhancement that requests public attribution from `https://id.string.sg/api/creation?slug=…`, without cookies or caching. The response links to the creator's public String ID profile and includes a school only when its existing `showSchool` checkbox and public profile permit it. Never place a school directly in static credit text. If the API is unavailable, the approved original credit remains and no school is shown. This is a public profile display preference, not school-affiliation verification.
+
+The reviewed mapping lives in String ID's `src/lib/creations.ts`; the same mapping populates Profile → My creations and public profile pages. Handles must be confirmed before assigning them. Until then, the existing String Team / Julienne credits remain unlinked. The module bundles locally; it never fetches executable code from GitHub. Sites with a Content Security Policy must allow `https://id.string.sg` in `connect-src`. This enhancement requires the String ID API change to deploy first; products work with their fallback credits beforehand.
