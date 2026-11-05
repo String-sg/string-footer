@@ -69,3 +69,10 @@ test('String ID preset stays compact and retains its local conduct link',()=>{
     assert.doesNotMatch(component,/Explore String|Get involved|Seng Kwang|Julienne/);
   } finally {rmSync(root,{recursive:true,force:true});}
 });
+
+test('creator lookup uses an explicit slug and no static school field', () => {
+  const html = renderFooter({ variant: 'compact', credits: [{ name: 'Teacher', creation: 'test-tool' }] });
+  assert.match(html, /data-string-creator="test-tool"/);
+  assert.match(html, /supported by/);
+  assert.throws(() => renderFooter({ variant: 'compact', credits: [{ name: 'Teacher', creation: '../private' }] }));
+});

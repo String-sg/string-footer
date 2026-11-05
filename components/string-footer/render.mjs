@@ -17,10 +17,14 @@ export function creditMarkup(credits = []) {
       if (url.protocol !== 'https:' || url.username || url.password) throw new Error('Credit URLs must use HTTPS without credentials');
       linkedName = `<a href="${escapeHtml(url.href)}">${name}</a>`;
     }
+    if (credit.creation !== undefined) {
+      if (typeof credit.creation !== 'string' || !/^[a-z0-9-]+$/.test(credit.creation)) throw new Error('Invalid creation slug');
+      linkedName = `<span data-string-creator="${credit.creation}">${linkedName}</span>`;
+    }
     return `${escapeHtml(label)} ${linkedName}`;
   }).join(' · ');
 }
-export function renderFooter({ variant = 'full', credits = [], product, support = 'Part of', supportNewTab = false } = {}) {
+export function renderFooter({ variant = 'full', credits = [], product, support = 'supported by', supportNewTab = false } = {}) {
   if (!['full','compact'].includes(variant)) throw new Error('variant must be full or compact');
   const authors = creditMarkup(credits);
   if (variant === 'compact' && !authors) throw new Error('Compact footer requires visible contributor credits');
