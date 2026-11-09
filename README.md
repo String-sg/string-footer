@@ -52,7 +52,7 @@ node components/string-footer/sync.mjs reports /path/to/reports
 node components/string-footer/sync.mjs diagrams /path/to/diagrams
 ```
 
-Bingo credits its confirmed creator Seng Kwang, linked to his String ID profile. Diagrams preserves “Created by Julienne, supported by string.sg”. String ID uses the full footer, credits String Team, and retains its local Code of Conduct link. Game controls, auth, integration links and tool-specific credits remain app-owned. No location label is added.
+Bingo reads “Inspired by Seng Kwang (Physics educator @ TJC), Part of string.sg”, with the name linked to the `sengkwang` String ID profile. Diagrams preserves “Created by Julienne, supported by string.sg”. String ID uses the full footer, credits String Team, and retains its local Code of Conduct link. Game controls, auth, integration links and tool-specific credits remain app-owned. No location label is added.
 
 ## Shared assets and updates
 
@@ -121,8 +121,8 @@ Product footers update separately through reviewed PRs: regenerate with the chos
 
 ## Creator profiles and school visibility
 
-Compact credits use “Created by …, supported by string.sg”. The owner confirmed Seng Kwang as Bingo’s creator; the credit links to his `sengkwang` String ID profile. Its old heart wording and static school reference are removed.
+Compact credits default to “Created by …, supported by string.sg”. Bingo is the exception: at the owner's request it reads “Inspired by Seng Kwang (Physics educator @ TJC), Part of string.sg”, linked to the `sengkwang` String ID profile. The heart wording and String Team credit are removed.
 
-A credit may include `creation: "bingo"` (or `"diagrams"`). The generator bundles a local, optional enhancement that requests public attribution from `https://id.string.sg/api/creation?slug=…`, without cookies or caching. The response links to the creator's public String ID profile and includes a school only when its existing `showSchool` checkbox and public profile permit it. Never place a school directly in static credit text. If the API is unavailable, the approved original credit remains and no school is shown. This is a public profile display preference, not school-affiliation verification.
+A credit may include `creation: "bingo"` (or `"diagrams"`). The generator bundles a local, optional enhancement that requests public attribution from `https://id.string.sg/api/creation?slug=…`, without cookies or caching. The response links to the creator's public String ID profile and includes a school only when its existing `showSchool` checkbox and public profile permit it. Do not place a school directly in static credit text. The one exception is Bingo's owner-approved “@ TJC”, which matches the school Seng Kwang's public profile showed on 9 November 2026; Bingo does not use the lookup. If that profile stops showing the school, remove it from the `bingo` preset and from Bingo's `footer.config.json`. If the API is unavailable, the approved original credit remains and no school is shown. This is a public profile display preference, not school-affiliation verification.
 
 The reviewed mapping lives in String ID's `src/lib/creations.ts`; the same mapping populates Profile → My creations and public profile pages. Handles must be confirmed before assigning them. Bingo links to the confirmed Seng Kwang profile. Diagrams links to Julienne’s confirmed `jtan` profile. The module bundles locally; it never fetches executable code from GitHub. Sites with a Content Security Policy must allow `https://id.string.sg` in `connect-src`. This enhancement requires the String ID API change to deploy first; products work with their fallback credits beforehand.
