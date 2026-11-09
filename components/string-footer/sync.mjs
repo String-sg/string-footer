@@ -6,7 +6,7 @@ import { createHash } from 'node:crypto';
 import { renderFooter } from './render.mjs';
 export const products = {
   landing: { name:'string-site', framework:'astro', variant:'full' },
-  id: { name:'string-id', framework:'react', variant:'compact', credits:[{label:'Built by',name:'String Team'}] },
+  id: { name:'string-id', framework:'react', variant:'full', credits:[{label:'Built by',name:'String Team'}] },
   skills: { name:'string-skills', framework:'react', variant:'full' },
   bingo: { name:'string-bingo', framework:'html', variant:'compact', pages:['index.html','new.html'], credits:[{label:'Created by',name:'Seng Kwang',creation:'bingo',url:'https://id.string.sg/u/sengkwang'}] },
   reports: { name:'my-project', framework:'react', variant:'full', componentDir:'components/string-footer' },

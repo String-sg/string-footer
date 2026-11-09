@@ -52,7 +52,7 @@ node components/string-footer/sync.mjs reports /path/to/reports
 node components/string-footer/sync.mjs diagrams /path/to/diagrams
 ```
 
-Bingo credits its confirmed creator Seng Kwang, linked to his String ID profile. Diagrams preserves “Created by Julienne, supported by string.sg”. String ID also uses compact, credits String Team, and retains its local Code of Conduct link. Game controls, auth, integration links and tool-specific credits remain app-owned. No location label is added.
+Bingo credits its confirmed creator Seng Kwang, linked to his String ID profile. Diagrams preserves “Created by Julienne, supported by string.sg”. String ID uses the full footer, credits String Team, and retains its local Code of Conduct link. Game controls, auth, integration links and tool-specific credits remain app-owned. No location label is added.
 
 ## Shared assets and updates
 
