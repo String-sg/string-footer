@@ -52,7 +52,7 @@ node components/string-footer/sync.mjs reports /path/to/reports
 node components/string-footer/sync.mjs diagrams /path/to/diagrams
 ```
 
-Bingo reads “Inspired by Seng Kwang (Physics educator @ TJC), Part of string.sg”, with the name linked to the `sengkwang` String ID profile. Diagrams preserves “Created by Julienne, supported by string.sg”. String ID uses the full footer, credits String Team, and retains its local Code of Conduct link. Game controls, auth, integration links and tool-specific credits remain app-owned. No location label is added.
+Bingo reads “Inspired by Seng Kwang (Physics educator @ TJC), supported by string.sg”, with the name linked to the `sengkwang` String ID profile. Diagrams preserves “Created by Julienne, supported by string.sg”. String ID uses the full footer, credits String Team, and retains its local Code of Conduct link. Game controls, auth, integration links and tool-specific credits remain app-owned. No location label is added.
 
 ## Shared assets and updates
 
@@ -121,7 +121,7 @@ Product footers update separately through reviewed PRs: regenerate with the chos
 
 ## Creator profiles and school visibility
 
-Compact credits default to “Created by …, supported by string.sg”. Bingo is the exception: at the owner's request it reads “Inspired by Seng Kwang (Physics educator @ TJC), Part of string.sg”, linked to the `sengkwang` String ID profile. The heart wording and String Team credit are removed.
+Compact credits default to “Created by …, supported by string.sg”. Bingo is the exception: at the owner's request it reads “Inspired by Seng Kwang (Physics educator @ TJC), supported by string.sg”, linked to the `sengkwang` String ID profile. The heart wording and String Team credit are removed.
 
 A credit may include `creation: "bingo"` (or `"diagrams"`). The generator bundles a local, optional enhancement that requests public attribution from `https://id.string.sg/api/creation?slug=…`, without cookies or caching. The response links to the creator's public String ID profile and includes a school only when its existing `showSchool` checkbox and public profile permit it. Do not place a school directly in static credit text. The one exception is Bingo's owner-approved “@ TJC”, which matches the school Seng Kwang's public profile showed on 9 November 2026; Bingo does not use the lookup. If that profile stops showing the school, remove it from the `bingo` preset and from Bingo's `footer.config.json`. If the API is unavailable, the approved original credit remains and no school is shown. This is a public profile display preference, not school-affiliation verification.
 

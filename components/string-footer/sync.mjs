@@ -8,7 +8,7 @@ export const products = {
   landing: { name:'string-site', framework:'astro', variant:'full' },
   id: { name:'string-id', framework:'react', variant:'full', credits:[{label:'Built by',name:'String Team'}] },
   skills: { name:'string-skills', framework:'react', variant:'full' },
-  bingo: { name:'string-bingo', framework:'html', variant:'compact', pages:['index.html','new.html'], support:'Part of', credits:[{label:'Inspired by',name:'Seng Kwang (Physics educator @ TJC)',url:'https://id.string.sg/u/sengkwang'}] },
+  bingo: { name:'string-bingo', framework:'html', variant:'compact', pages:['index.html','new.html'], credits:[{label:'Inspired by',name:'Seng Kwang (Physics educator @ TJC)',url:'https://id.string.sg/u/sengkwang'}] },
   reports: { name:'my-project', framework:'react', variant:'full', componentDir:'components/string-footer' },
   diagrams: { name:'diagrams', framework:'react', variant:'compact', componentDir:'components/string-footer', support:'supported by', supportNewTab:true, credits:[{label:'Created by',name:'Julienne',creation:'diagrams',url:'https://id.string.sg/u/jtan'}] },
 };

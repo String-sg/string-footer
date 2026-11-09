@@ -86,7 +86,7 @@ test('Bingo preset matches the credit Bingo ships',()=>{
     for(const page of ['index.html','new.html']) writeFileSync(join(root,page),'<html><head></head><body></body></html>');
     execFileSync(process.execPath,[cli,'bingo',root]);
     const html=readFileSync(join(root,'index.html'),'utf8');
-    assert.match(html,/Inspired by <a href="https:\/\/id.string.sg\/u\/sengkwang"><strong>Seng Kwang \(Physics educator @ TJC\)<\/strong><\/a>, Part of <a href="https:\/\/string.sg">string.sg<\/a>/);
+    assert.match(html,/Inspired by <a href="https:\/\/id.string.sg\/u\/sengkwang"><strong>Seng Kwang \(Physics educator @ TJC\)<\/strong><\/a>, supported by <a href="https:\/\/string.sg">string.sg<\/a>/);
     assert.doesNotMatch(html,/String Team|Made with|data-string-creator/);
   } finally {rmSync(root,{recursive:true,force:true});}
 });
